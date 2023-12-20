@@ -1,12 +1,10 @@
-import './App.css';
-import NestingComponents from './components/NestingComponents';
+import "./App.css";
+import RenderingLists from "./components/RenderingLists";
 
 function App() {
-  return (
-    <div className="App">
-      <NestingComponents />
-    </div>
-  );
+  return <div className="App">
+      <RenderingLists />
+  </div>;
 }
 
 export default App;
