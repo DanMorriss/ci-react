@@ -20,7 +20,7 @@ export class ConditionalRenderingClass extends Component {
                     <li>Confirm your email</li>
                     <li>Complete your profile</li>
                     <li>Subscribe to the newsletter</li>
-                </ol>
+                </ol> 
             </div>
         ) : (<p>Please sign in</p>)}
       </div>
