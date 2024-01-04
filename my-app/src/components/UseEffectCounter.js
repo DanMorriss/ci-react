@@ -1,33 +1,33 @@
 import React, {useState, useEffect} from 'react'
 
 function UseEffectCounter() {
-        const [count, setCount] = useState(0);
-        // The useEffect runs after ever render (one function to rule them all) the [count] after the arrow function is to make specify when in should run
-        useEffect(() => {
-            console.log('count 1 effect')
-            document.title = count;
-        }, [count]);
+    const [count, setCount] = useState(0);
+    const [time, setTime] = useState(0);
 
-        const [count2, setCount2] = useState(0);
-        useEffect(() => {
-            console.log('count 2 effect')
-            document.title = count2;
-        }, [count2]);
-    
-        return (
-        <div>
-            <button onClick={
-                () => setCount(count => count +1)
-            }>
-                Increment Counter ({count})
-            </button>
-            <button onClick={
-                () => setCount2(coun2 => count2 +1)
-            }>
-                Increment Counter 2 ({count2})
-            </button>
-        </div>
-    )
+    // The useEffect runs after ever render. 
+    // The [count] after the arrow function is to specify it should run after the [count] is updated.
+    useEffect(() => {
+        console.log('count 1 effect')
+        document.title = count;
+    }, [count]);
+    // To run it only once, pass the second parameter as an empty array.
+    useEffect(() => {
+        console.log('Creating timer')
+        const interval = setInterval(() => {
+            setTime(time => time +1)
+        }, 1000)
+    }, [])
+
+    return (
+    <div>
+        <button onClick={
+            () => setCount(count => count +1)
+        }>
+            Increment Counter ({count})
+        </button>
+        <h2>Time is {time}</h2>
+    </div>
+)
 }
 
 export default UseEffectCounter
